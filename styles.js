@@ -25,7 +25,8 @@ export default createGlobalStyle`
     max-width: 50rem;
   }
 
-  button {
+  a:any-link {
+    display: block;
     appearance: none;
     border: none;
     background: var(--color-water-10);
