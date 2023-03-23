@@ -3,6 +3,8 @@ import { jokes } from "../../../lib/data";
 export default function handler(request, response) {
   const { id } = request.query;
 
+  console.log("get joke for id", id);
+
   const joke = jokes.find((joke) => joke.id === id);
 
   if (joke) {
