@@ -6,9 +6,12 @@ export default function JokeDetailsPage() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data } = useSWR(
-    id ? `https://example-apis.vercel.app/api/bad-jokes/${id}` : null
-  );
+  const { data, error } = useSWR(id ? `/api/jokes/${id}` : null);
+
+  if (error) {
+    console.dir(error);
+    return <h1>An error occured… ({error.info.status})</h1>;
+  }
 
   if (!data) {
     return <h1>Loading...</h1>;
